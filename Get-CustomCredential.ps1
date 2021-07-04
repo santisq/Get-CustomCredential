@@ -1,5 +1,14 @@
-Add-Type -Assembly System.Windows.Forms, System.Drawing
-Add-Type -ReferencedAssemblies System.Drawing.dll -TypeDefinition @'
+Add-Type -AssemblyName System.Windows.Forms
+
+$refAssemblies = @(
+    'System.Drawing'
+)
+if($PSVersionTable.PSVersion.Major -ge 6)
+{
+    $refAssemblies += 'System.Drawing.Common'
+}
+
+Add-Type -ReferencedAssemblies $refAssemblies -IgnoreWarnings -WarningAction Ignore -TypeDefinition @'
 using System; 
 using System.Runtime.InteropServices;
 using System.Drawing;
