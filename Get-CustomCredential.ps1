@@ -40,7 +40,7 @@ public class DPI
 function Get-CustomCredential {
     [Application]::EnableVisualStyles()
 
-    $DPI    = [math]::round([dpi]::scaling(),2) * 100
+    $DPI    = [math]::round([dpi]::scaling(), 2) * 100
     $bounds = [Screen]::PrimaryScreen.WorkingArea
     $bounds.Width  = $bounds.Width / 100 * $DPI
     $bounds.Height = $bounds.Height / 100 * $DPI
@@ -53,8 +53,8 @@ function Get-CustomCredential {
         KeyPreview      = $true
         Font            = [Font]::new('Calibri', 12, [FontStyle]::Regular)
         Icon            = [Icon]::ExtractAssociatedIcon((Get-Process -Id $PID).Path)
-        MinimumSize     = [Size]::new($bounds.Width / 4.5, $bounds.Height/4.5)
-        MaximumSize     = [Size]::new($bounds.Width, $bounds.Height/4.5)
+        MinimumSize     = [Size]::new($bounds.Width / 4.5, $bounds.Height / 4.5)
+        MaximumSize     = [Size]::new($bounds.Width, $bounds.Height / 4.5)
         MaximizeBox     = $false
     }
     $mainForm.Size = $mainForm.MinimumSize
